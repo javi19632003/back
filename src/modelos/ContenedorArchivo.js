@@ -3,7 +3,7 @@ import {archivo} from '../configuracion/index.js'
 
 class ContenedorArchivo {
     constructor(nombreArchivo){
-        this.nombreArchivo = `${archivo.directorio}/${nombreArchivo}.txt`
+        this.nombreArchivo = `${archivo.directorio}/${nombreArchivo}.json`
     }
 
     async mostrarTodos() {
@@ -22,8 +22,8 @@ class ContenedorArchivo {
 
             const ultimoElemento = elementos[elementos.length -1]
             
-            nuevoElemento.id = ultimoElemento ? ultimoElemento.id + 1 : 1
-
+            nuevoElemento.id        = ultimoElemento ? ultimoElemento.id + 1 : 1
+            nuevoElemento.timestamp = Date.now()
             elementos.push(nuevoElemento)
 
             await fs.writeFile(this.nombreArchivo, JSON.stringify(elementos))

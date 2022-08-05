@@ -1,8 +1,10 @@
+
+
 const mongo = {
     uri: process.env.MONGO_DB_URI
   };
   const archivo = {
-    directorio: "./src/db/archivos",
+    directorio: "./src/modelos/datos",
   };
   
   export { mongo, archivo };

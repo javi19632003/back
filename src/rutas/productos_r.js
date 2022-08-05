@@ -18,28 +18,36 @@ rutaProductos.get('/:id?', async (req, res) => {
     }
 
 })
-//rutaProductos.post('/',[isAdministrator], async (req, res) => {
+    
 
 rutaProductos.post('/', async (req, res) => {
-    const { title, price, thumbnail, codigo } = req.body
-    if(!title || !price || !thumbnail) return res.send('Debe completar todos los campos')
-    const respuesta = await productosApi.guardarElemento({title, price, thumbnail, codigo})
-
+    const { id,timestamp,nombre,descripcion,precio,foto } = req.body.data
+    const { admin }                                       = req.body
+    if (!admin) return res.send('Debe ser Administrador para utilizar este recurso')
+    if(!nombre || !precio || !foto) return res.send('Debe completar todos los campos')
+    const respuesta = await productosApi.guardarElemento({id,timestamp,nombre,descripcion,precio,foto})
+    
     res.json(respuesta)
+   
+    
 })
 
 rutaProductos.put('/:id', async (req, res) => {
     const {id} = req.params
-    const {title, price, thumbnail} = req.body
+    const {nombre,descripcion,precio,foto} = req.body.data
+    const { admin }                        = req.body
+    if (!admin) return res.send('Debe ser Administrador para utilizar este recurso')
 
-    const respuesta = await productosApi.actualizar(id, {title, price, thumbnail})
+    const respuesta = await productosApi.actualizar(id, {nombre,descripcion,precio,foto})
 
     res.json(respuesta)
 })
 
 rutaProductos.delete('/:id?', async (req,res) => {
-    const {id} = req.params
-    if(id){
+    const {id}    = req.params
+    const {admin} = req.body
+    if (!admin) return res.send('Debe ser Administrador para utilizar este recurso')
+   if(id){
         const respuesta = await productosApi.eliminarPorId(id)
         res.json(respuesta)
         return

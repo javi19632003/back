@@ -13,7 +13,6 @@ import { Producto } from "../modelos/schemas/productos.js";
 class ContenedorMongo {
     constructor(nombreColeccion){
         this.coleccion = nombreColeccion
-        this.conectar();
     }
 
     async conectar(){
