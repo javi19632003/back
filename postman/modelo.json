@@ -13,7 +13,13 @@
 
  {
    "ope" : "/api/carrito/ crear carrito",
-   "nombre": "Alejandro",
-   "productos":[]
+   "nombre": "Correo electronico de la persona",
+   "retorna": "numero de carrito"
+},
+
+{
+   "ope" : "/api/carrito/ dar de alta productos en el carrito (número de carrito en el PUT",
+   "productoId": "numero de producto",
+   "retorna":" carrito con todos sus prodcutos"
 }
 ]

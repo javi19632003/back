@@ -28,7 +28,7 @@ class ContenedorMongo {
             throw new Error(error)        
         }
     }
-/*
+
     async mostrarTodos() {
         try {
             const resultado = await this.coleccion.find().toArray()
@@ -77,7 +77,6 @@ class ContenedorMongo {
             throw new Error(error)
         }
     }
-    */
 }
 
 export {ContenedorMongo}
