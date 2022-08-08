@@ -18,14 +18,19 @@ class ContenedorArchivo {
 
     async guardarElemento(nuevoElemento){
         try {
+            console.log("entre")
             const elementos = await this.mostrarTodos()
-
+            console.log(elementos)
             const ultimoElemento = elementos[elementos.length -1]
-            
-            nuevoElemento.id        = ultimoElemento ? ultimoElemento.id + 1 : 1
-            nuevoElemento.timestamp = Date.now()
+            console.log(ultimoElemento)
+            if(ultimoElemento == undefined){
+                console.log("ifffff")
+                nuevoElemento.id = 1
+            }  else { 
+                nuevoElemento.id  = ultimoElemento ? ultimoElemento.id + 1 : 1
+            }
             elementos.push(nuevoElemento)
-
+            console.log(elementos)
             await fs.writeFile(this.nombreArchivo, JSON.stringify(elementos))
 
             return nuevoElemento

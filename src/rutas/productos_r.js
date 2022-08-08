@@ -21,8 +21,9 @@ rutaProductos.get('/:id?', async (req, res) => {
     
 
 rutaProductos.post('/', async (req, res) => {
-    const { id,timestamp,nombre,descripcion,precio,foto } = req.body.data
-    const { admin }                                       = req.body
+    const { id,nombre,descripcion,precio,foto } = req.body.data
+    const { admin }  = req.body
+    const timestamp  = Date.now()
     if (!admin) return res.send('Debe ser Administrador para utilizar este recurso')
     if(!nombre || !precio || !foto) return res.send('Debe completar todos los campos')
     const respuesta = await productosApi.guardarElemento({id,timestamp,nombre,descripcion,precio,foto})

@@ -1,5 +1,6 @@
 [{
-    "admin": true,
+   "ope": "/api/productos",
+   "admin": true,
     "data":{
    "id":1,
    "timestamp": 1657126571900,
@@ -10,19 +11,9 @@
     }
  },
 
- 
  {
-    "operacion" : "carrito/post _ alta carrito"
-    "id":1,
-    "timestamp": 1657126571900,
-    "email": "javi19632003@gmail.com",
-     "data":{
-    "id":1,
-    "timestamp": 1657126571900,
-    "nombre": "por Postman Cámara full profesional ",
-    "descripcion": "Cáma hermosa y muy buena que pasé por Postman ",
-    "precio": 1500.00,
-    "foto": "https://http2.mlstatic.com/D_NQ_NP_993642-MLA31993704014_082019-O.webp"
-     }
-  }
+   "ope" : "/api/carrito/ crear carrito",
+   "nombre": "Alejandro",
+   "productos":[]
+}
 ]

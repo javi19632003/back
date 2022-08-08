@@ -15,9 +15,9 @@ rutaCarrito.get('/', async (req, res) => {
 
 rutaCarrito.post('/', async (req, res) => {
     try {
-        const { email, timestamp, id, productos } = req.body
-        console.log(req.body)
-        const carrito = await carritoApi.guardarElemento({email,id,timestamp, productos})
+        const { nombre } = req.body
+        const id = 0;
+        const carrito = await carritoApi.guardarElemento({nombre, productos: []})
 
         res.json(carrito)
     } catch (error) {
