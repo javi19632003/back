@@ -13,7 +13,7 @@ const productosSchema = new mongoose.Schema({
   versionKey: false 
 });
 
-export const Producto = mongoose.model(
+export const productos = mongoose.model(
   productosCollection,
   productosSchema
 );

@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import { Producto } from "./productos.js";
+import { productos } from "./productos.js";
 
 
 try {
@@ -87,7 +87,7 @@ async function creroMockProductos() {
   ];
 
     productoData.forEach(async (producto) => {
-      const productoNuevo = new Producto(producto);
+      const productoNuevo = new productos(producto);
       await productoNuevo.save();
     });
 
